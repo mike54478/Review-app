@@ -1,0 +1,89 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #f6f7fb;
+  color: #182030;
+}
+
+body {
+  margin: 0;
+  padding: 32px;
+}
+
+header {
+  margin-bottom: 24px;
+}
+
+h1 {
+  margin-bottom: 8px;
+}
+
+main {
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(18, 28, 45, 0.08);
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d0d6e0;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.status {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.status.success {
+  color: #16a34a;
+}
+
+.status.error {
+  color: #dc2626;
+}
+
+#send-logs {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+#send-logs li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eef1f6;
+}

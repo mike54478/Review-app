@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Review Request MVP</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Review Request MVP</h1>
+      <p>Manage businesses, contacts, campaigns, and send review requests.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>1) Create Business</h2>
+        <form id="business-form">
+          <label>
+            Business name
+            <input name="name" placeholder="Cedar Auto Repair" required />
+          </label>
+          <label>
+            Address
+            <input name="address" placeholder="123 Main St" />
+          </label>
+          <label>
+            Google Place ID
+            <input name="google_place_id" placeholder="ChIJ..." />
+          </label>
+          <button type="submit">Create business</button>
+        </form>
+        <div class="status" id="business-status"></div>
+      </section>
+
+      <section class="card">
+        <h2>2) Add Contact</h2>
+        <form id="contact-form">
+          <label>
+            Business
+            <select name="business_id" id="contact-business"></select>
+          </label>
+          <label>
+            First name
+            <input name="first_name" required />
+          </label>
+          <label>
+            Last name
+            <input name="last_name" />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" />
+          </label>
+          <label>
+            Phone
+            <input name="phone" />
+          </label>
+          <label>
+            Consent channel
+            <select name="consent_channel">
+              <option value="">Select</option>
+              <option value="email">Email</option>
+              <option value="sms">SMS</option>
+            </select>
+          </label>
+          <label>
+            Consent source
+            <input name="consent_source" placeholder="POS checkout" />
+          </label>
+          <label>
+            Consented at (ISO)
+            <input name="consented_at" placeholder="2024-06-01T12:00:00" />
+          </label>
+          <button type="submit">Add contact</button>
+        </form>
+        <div class="status" id="contact-status"></div>
+      </section>
+
+      <section class="card">
+        <h2>3) Create Campaign</h2>
+        <form id="campaign-form">
+          <label>
+            Business
+            <select name="business_id" id="campaign-business"></select>
+          </label>
+          <label>
+            Campaign name
+            <input name="name" placeholder="Post-visit review request" required />
+          </label>
+          <label>
+            Channel
+            <select name="channel" required>
+              <option value="email">Email</option>
+              <option value="sms">SMS</option>
+            </select>
+          </label>
+          <label>
+            Message template
+            <textarea
+              name="message_template"
+              rows="4"
+              required
+              placeholder="Hi {first_name}, thanks for visiting! Would you mind leaving us a quick review? {review_link}"
+            ></textarea>
+          </label>
+          <button type="submit">Create campaign</button>
+        </form>
+        <div class="status" id="campaign-status"></div>
+      </section>
+
+      <section class="card">
+        <h2>4) Send Review Requests</h2>
+        <form id="send-form">
+          <label>
+            Campaign
+            <select name="campaign_id" id="send-campaign"></select>
+          </label>
+          <label>
+            Review link
+            <input
+              name="review_link"
+              required
+              placeholder="https://search.google.com/local/writereview?placeid=..."
+            />
+          </label>
+          <label>
+            Contacts
+            <select name="contact_ids" id="send-contacts" multiple></select>
+          </label>
+          <button type="submit">Queue send</button>
+        </form>
+        <div class="status" id="send-status"></div>
+      </section>
+
+      <section class="card">
+        <h2>Send Logs</h2>
+        <button id="refresh-logs" type="button">Refresh logs</button>
+        <ul id="send-logs"></ul>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
